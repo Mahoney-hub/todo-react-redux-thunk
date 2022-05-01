@@ -1,34 +1,22 @@
-import React, {useState} from 'react';
-import {Button, ButtonGroup, Checkbox, TextField} from '@mui/material';
-import {TodoType} from '../../types/types';
-import {v1} from 'uuid';
+import React from 'react';
+import {TaskList} from './TaskList';
+import {AddItemForm} from '../add-item-form/AddItemForm';
+import {TaskFilter} from './TaskFilter';
+import {useSelector} from 'react-redux';
+import {selectTasks} from '../store/selectors/selectTasks';
 
-const data = [
-    {id: v1(), title: 'HTML', completed: false},
-    {id: v1(), title: 'CSS', completed: false},
-    {id: v1(), title: 'JS', completed: false},
-]
+// dark: #161826
 
 export const Todo = () => {
-    const [todo, setTodo] = useState<TodoType[]>(data)
+
+    const tasks = useSelector(selectTasks)
+
     return (
         <div>
-            <div>
-                <TextField/>
-                <Button>add</Button>
-            </div>
-            <ul>
-                {data.map(t => <li key={t.id}>
-                    <Checkbox checked={t.completed}/>
-                    {t.title}
-                    <Button>X</Button>
-                </li>)}
-            </ul>
-            <ButtonGroup fullWidth>
-                <Button>all</Button>
-                <Button>active</Button>
-                <Button>completed</Button>
-            </ButtonGroup>
+            <h2>Title Todo</h2>
+            <AddItemForm/>
+            <TaskList data={tasks}/>
+            <TaskFilter/>
         </div>
     );
 };
