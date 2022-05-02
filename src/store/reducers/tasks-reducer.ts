@@ -1,9 +1,9 @@
-import {TodoType} from '../../../types/types';
+import {TaskType, TodoType} from '../../types/types';
 import {addTask, changeTaskStatus, removeTask} from '../actions/tasks';
 import {v1} from 'uuid';
 
 const initState = {
-    todo: [] as TodoType[],
+    todo: [] as TaskType[],
 };
 
 type InitStateType = typeof initState;
