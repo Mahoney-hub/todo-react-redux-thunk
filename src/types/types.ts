@@ -12,3 +12,7 @@ export type TaskType = {
     completed: boolean
 }
 
+export type TasksType = {
+    [key: string]: TaskType[]
+}
+

@@ -1,4 +1,4 @@
 import {RootStoreType} from '../store';
-import {TaskType} from '../../types/types';
+import {TasksType} from '../../types/types';
 
-export const selectTasks = (store: RootStoreType): TaskType[] => store.tasks.todo;
+export const selectTasks = (store: RootStoreType): TasksType => store.tasks;
