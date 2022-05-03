@@ -39,6 +39,7 @@ const TextFieldStyled = styled(TextField)`
     & > div {
       margin: 0;
       border-radius: 0;
+      font-size: 20px;
       font-family: cursive;
       font-style: italic;
     }

@@ -51,7 +51,6 @@ body {
 }
 
 .add-item-form-wrapper > div > div {
-  padding-left: 20px;
   color: white;
   font-size: 20px;
   font-family: cursive;
@@ -70,8 +69,9 @@ body {
   justify-content: space-between;
   border-radius: 5px;
   color: white;
-  background: blue;
+  background: linear-gradient(330deg, rgba(0,198,255,1) 0%, rgba(0,114,255,1) 100%);
   font-family: cursive;
   font-style: italic;
 }
+
 

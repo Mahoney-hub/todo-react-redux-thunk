@@ -10,3 +10,7 @@ export const changeTaskStatus = (idTodo: string, idTask: string) => ({
     type: 'CHANGE-TASK-STATUS', idTodo, idTask
 }) as const;
 
+export const changeTaskTitle = (idTodo: string, idTask: string, title: string) => ({
+    type: 'CHANGE-TASK-TITLE', idTodo, idTask, title
+}) as const;
+

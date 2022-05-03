@@ -1,5 +1,5 @@
 import {TasksType, TaskType, TodoType} from '../../types/types';
-import {addTask, changeTaskStatus, removeTask} from '../actions/tasks';
+import {addTask, changeTaskStatus, changeTaskTitle, removeTask} from '../actions/tasks';
 import {v1} from 'uuid';
 import {todoID1} from './todolist-reducer';
 import {addTodo, removeTodo} from '../actions/todoList';
@@ -20,7 +20,8 @@ type ActionsType = ReturnType<typeof addTask |
     typeof removeTask |
     typeof changeTaskStatus |
     typeof addTodo |
-    typeof removeTodo>;
+    typeof removeTodo |
+    typeof changeTaskTitle>;
 
 export const tasksReducer = (state: InitStateType = initState, action: ActionsType): InitStateType => {
     switch (action.type) {
@@ -51,6 +52,12 @@ export const tasksReducer = (state: InitStateType = initState, action: ActionsTy
             const copyState = {...state};
             delete copyState[action.id];
             return copyState;
+        case 'CHANGE-TASK-TITLE':
+            return {
+                ...state,
+                [action.idTodo]: state[action.idTodo]
+                    .map(t => t.id !== action.idTask ? t : {...t, title: action.title})
+            }
         default:
             return state
     }

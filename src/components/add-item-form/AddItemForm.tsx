@@ -2,12 +2,13 @@ import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import {Button, TextField} from '@mui/material';
 import {useDispatch} from 'react-redux';
 import {addTask} from '../../store/actions/tasks';
+import styled from 'styled-components';
 
 type AddItemFormTypeProps = {
     id: string
 }
 
-export const AddItemForm = ({id}:AddItemFormTypeProps) => {
+export const AddItemForm = ({id}: AddItemFormTypeProps) => {
     const [title, setTitle] = useState<string>('')
     const dispatch = useDispatch()
 
@@ -26,17 +27,36 @@ export const AddItemForm = ({id}:AddItemFormTypeProps) => {
 
     return (
         <div className={'add-item-form-wrapper'}>
-                <TextField value={title}
-                           onChange={changeHandler}
-                           onKeyDown={keyPressHandler}
-                           variant={'standard'}
-                           fullWidth
-                />
+            <TextFieldStyled value={title}
+                             onChange={changeHandler}
+                             onKeyDown={keyPressHandler}
+                             variant={'outlined'}
+                             fullWidth
+            />
 
-            <Button variant={'contained'} onClick={clickHandler}>add</Button>
+            <ButtonStyled variant={'contained'} onClick={clickHandler}>Add Todo</ButtonStyled>
         </div>
     );
 };
+
+const TextFieldStyled = styled(TextField)`
+  && {
+    & > div {
+      height: 40px;
+      border: 1px solid blue;
+      border-radius: 5px 0 0 5px;
+    }
+  }`
+
+const ButtonStyled = styled(Button)`
+  && {
+    height: 40px;
+    border-radius: 0 5px 5px 0;
+    padding: 6px 0;
+    text-transform: capitalize;
+    font-size: 12px;
+  }`
+
 
 
 
