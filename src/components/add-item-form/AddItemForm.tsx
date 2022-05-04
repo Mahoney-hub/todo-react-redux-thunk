@@ -3,6 +3,8 @@ import {Button, TextField} from '@mui/material';
 import {useDispatch} from 'react-redux';
 import {addTask} from '../../store/actions/tasks';
 import styled from 'styled-components';
+import {addTaskTC} from '../../store/reducers/tasks-reducer';
+import {AppDispatch} from '../../store/store';
 
 type AddItemFormTypeProps = {
     id: string
@@ -10,13 +12,13 @@ type AddItemFormTypeProps = {
 
 export const AddItemForm = ({id}: AddItemFormTypeProps) => {
     const [title, setTitle] = useState<string>('')
-    const dispatch = useDispatch()
+    const dispatch = AppDispatch()
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
 
     const clickHandler = () => {
         if (title.trim().length) {
-            dispatch(addTask(id, title))
+            dispatch(addTaskTC(id, title))
             setTitle('')
         }
     }

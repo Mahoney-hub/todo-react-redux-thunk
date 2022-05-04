@@ -1,4 +1,4 @@
 import {RootStoreType} from '../store';
-import {TodoType} from '../../types/types';
+import {InitStateTypeTodoList} from '../reducers/todolist-reducer';
 
-export const selectTodoList = (store: RootStoreType): TodoType[] => store.todos.todoList;
+export const selectTodoList = (store: RootStoreType): InitStateTypeTodoList[] => store.todos;

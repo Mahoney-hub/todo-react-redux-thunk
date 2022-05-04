@@ -1,6 +1,6 @@
 import React from 'react';
-import {TaskType} from '../../types/types';
 import {TaskItem} from './TaskItem';
+import {TaskType} from '../../api/todolist-api';
 
 type TaskListPropsType = {
     data: TaskType[]

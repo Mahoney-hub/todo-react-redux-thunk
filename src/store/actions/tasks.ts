@@ -1,5 +1,7 @@
-export const addTask = (id: string, title: string) => ({
-    type: 'ADD-TASK', id, title
+import {TaskType} from '../../api/todolist-api';
+
+export const addTask = (task: TaskType) => ({
+    type: 'ADD-TASK', task
 }) as const;
 
 export const removeTask = (idTodo: string, idTask: string) => ({
@@ -12,5 +14,9 @@ export const changeTaskStatus = (idTodo: string, idTask: string) => ({
 
 export const changeTaskTitle = (idTodo: string, idTask: string, title: string) => ({
     type: 'CHANGE-TASK-TITLE', idTodo, idTask, title
+}) as const;
+
+export const getTasksAC = (id: string, tasks: TaskType[]) => ({
+    type: 'GET-TASKS', id, tasks
 }) as const;
 

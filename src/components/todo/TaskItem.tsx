@@ -1,11 +1,11 @@
 import React from 'react';
 import {Checkbox, IconButton} from '@mui/material';
-import {TaskType} from '../../types/types';
 import {useDispatch} from 'react-redux';
 import {changeTaskStatus, changeTaskTitle, removeTask} from '../../store/actions/tasks';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import styled from 'styled-components';
 import {EditableSpan} from '../editable-span/EditableSpan';
+import {TaskType} from '../../api/todolist-api';
 
 type TaskItemPropsType = {
     task: TaskType
@@ -22,7 +22,7 @@ export const TaskItem = ({task, id, bgColor}: TaskItemPropsType) => {
 
     return (
         <li className={'task-item'} style={bgColor}>
-            <CheckboxStyled checked={task.completed}
+            <CheckboxStyled
                             size={'small'}
                             onClick={() => dispatch(changeTaskStatus(id, task.id))}
             />
